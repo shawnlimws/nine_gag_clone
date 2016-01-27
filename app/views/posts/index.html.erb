@@ -5,6 +5,9 @@
 <% @posts.reverse_each do |post| %>
   <div>
     <h3><%= post.title %></h3>
+    <%= image_tag post.image.url(:medium) if post.image.present? %>
+    <br>
     <%= link_to "View", post_path(post) %>
+
   </div>
 <% end %>
