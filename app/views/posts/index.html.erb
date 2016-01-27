@@ -1,0 +1,10 @@
+<h1>Posts Index</h1>
+
+<%= link_to "New Post",new_post_path %>
+
+<% @posts.reverse_each do |post| %>
+  <div>
+    <h3><%= post.title %></h3>
+    <%= link_to "View", post_path(post) %>
+  </div>
+<% end %>
