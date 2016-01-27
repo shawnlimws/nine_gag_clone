@@ -22,5 +22,11 @@ module NineGagClone
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.paperclip_defaults = {
+      :storage => :s3,
+      :path => ":class/:attachment/:id_partition/:style/:filename",
+      :s3_host_name => "s3-ap-southeast-1.amazonaws.com",
+      :s3_credentials => "#{Rails.root}/config/s3.yml"
+    }
   end
 end
